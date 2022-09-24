@@ -86,6 +86,9 @@ public class BluetoothOppTransferHistory extends Activity
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.bluetooth_transfers_page);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         mListView = (ListView) findViewById(R.id.list);
         mListView.setEmptyView(findViewById(R.id.empty));
 
@@ -169,6 +172,9 @@ public class BluetoothOppTransferHistory extends Activity
         switch (item.getItemId()) {
             case R.id.transfer_menu_clear_all:
                 promptClearList();
+                return true;
+            case android.R.id.home:
+                this.finish();
                 return true;
         }
         return false;
